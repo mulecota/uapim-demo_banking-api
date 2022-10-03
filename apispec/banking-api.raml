@@ -1,0 +1,257 @@
+#%RAML 1.0
+types:
+  HealthCheck:
+    description: This Data Type/Schema represents the health check information returned by the API
+    properties:
+      status:
+        description: API status
+        enum:
+          - OK
+          - Fail
+          - Warning
+        example: OK
+        type: string
+      uptime:
+        description: Server uptime
+        example: "103.412151562"
+        type: string
+      mockdata:
+        description: "Loaded sample data "
+        type: MockData
+  APIError:
+    description: Common object shared among APIs to report any error
+    properties:
+      message:
+        description: Error message
+        example: Error communicating with the database
+        type: string
+      errorCode:
+        description: Error code to facilitate troubleshooting
+        example: API-DB-1009
+        type: string
+      status:
+        description: Status of the overall request
+        default: Fail
+        example: Fail
+        type: string
+      timestamp:
+        description: UTC timestamp
+        example: "1664732604"
+        type: string
+  Accounts:
+    description: An array of Account objects
+    items:
+      type: Account
+  Customers:
+    description: An array of Customer objects
+    items:
+      type: Customer
+  Customer:
+    description: This Data Type/Schema represents the Customer object
+    properties:
+      customerid:
+        description: Customer identification
+        example: "7159336526"
+        type: string
+      login:
+        description: Customer login
+        example: user1
+        type: string
+      name:
+        description: Customer full name
+        example: Gherardo Labeuil
+        type: string
+      email:
+        description: Customer email
+        example: glabeuil0@opera.com
+        type: string
+  MockData:
+    description: Demo API loaded sample data
+    properties:
+      accounts?:
+        type: Accounts
+        items:
+          type: Account
+      customers?:
+        type: Customers
+        items:
+          type: Customer
+  Account:
+    description: This Data Type/Schema represents the Account object.
+    properties:
+      accountid:
+        description: Account identification
+        example: "2859993894"
+        type: string
+      type:
+        description: Possible account types
+        enum:
+          - savings
+          - checking
+        example: checking
+        type: string
+      customerid:
+        description: Identification of the customer who owns the account
+        example: "7159336526"
+        type: string
+      balance:
+        description: Balance of the account
+        default: "0"
+        example: "195"
+        type: string
+      manager:
+        description: Name of the account manager
+        example: Rusty Gates
+        type: string
+      branch:
+        description: Number of the branch where this account is located
+        example: "2335"
+        type: string
+      active:
+        description: Account status
+        default: true
+        example: true
+        type: boolean
+title: Banking API
+description: |
+  Banking APIs
+mediaType:
+  - application/json
+version: 1.0.0
+protocols:
+  - HTTP
+/accounts:
+  get:
+    displayName: Accounts endpoint
+    description: This endpoint will return **Accounts** data from the API server
+    responses:
+      "200":
+        description: API successfully fetched the list of accounts from the database
+        body:
+          type: Accounts
+          items:
+            type: Account
+      "400":
+        description: The API server returned a bad request status
+        body:
+          type: APIError
+          example:
+            strict: true
+            value:
+              message: The API server returned a bad request error while fetching the accounts
+              errorCode: API-HTTP-400
+              status: Fail
+              timestamp: "1664732604"
+      "500":
+        description: Error fetching the list of accounts
+        body:
+          description: HTTP 500 response
+          type: APIError
+          example:
+            strict: true
+            value:
+              message: Error fetching users from the API server
+              errorCode: API-305
+              status: Fail
+              timestamp: "1664732604"
+/customers:
+  get:
+    displayName: Customers endpoint
+    description: This endpoint will return **Customer** data from the API server
+    responses:
+      "200":
+        description: API successfully fetched the list of customers from the database
+        body:
+          type: Customers
+          items:
+            type: Customer
+      "400":
+        description: The API server returned a bad request status
+        body:
+          type: APIError
+          example:
+            strict: true
+            value:
+              message: The API server returned a bad request error while fetching the customers
+              errorCode: API-HTTP-400
+              status: Fail
+              timestamp: "1664732604"
+      "500":
+        description: Error fetching the list of customers
+        body:
+          application/json:
+            description: HTTP 500 response
+            type: APIError
+            example:
+              strict: true
+              value:
+                message: Error fetching users from the API server
+                errorCode: API-305
+                status: Fail
+                timestamp: "1664732604"
+  uriParameters:
+    customerid?:
+      description: Enter the Customer identification to fetch data about a specific customer
+      example: "7159336526"
+      type: string
+/healthcheck:
+  get:
+    displayName: API health check endpoint
+    description: "Information about the current state of the API server is returned by this endpoint. "
+    responses:
+      "200":
+        description: "API is up and happily running "
+        body:
+          application/json:
+            description: JSON payload returned by the health check endpoint when everything is ok
+            type: HealthCheck
+      "500":
+        description: Something went wrong
+        body:
+          description: JSON payload returned by the health check endpoint when some error occurred
+          type: APIError
+baseUri: http://{server}:{port}/api
+baseUriParameters:
+  server:
+    description: Server hosting the API
+    enum:
+      - backend.muledemos.net
+    example: localhost
+    type: string
+  port:
+    description: Server port
+    enum:
+      - "8081"
+    example: "8081"
+    type: string
+/customers/{customerId}/accounts:
+  get:
+    displayName: Return list of all accounts belonging to a customer
+    description: This endpoint will return all the accounts that a customer owns.
+    body: {}
+    responses:
+      "200":
+        description: The API successfully fetched the list of accounts of the provided customer
+        body:
+          type: Accounts
+          items:
+            type: Account
+      "404":
+        description: The provided customer has no accounts
+        body:
+          type: Accounts
+          items:
+            type: Account
+      "500":
+        description: Error fetching the list of accounts of a customer
+        body:
+          type: Accounts
+          items:
+            type: Account
+    securedBy: []
+  uriParameters:
+    customerid:
+      description: Customer identification
+      example: "7159336526"
+      type: string
+
