@@ -1,4 +1,19 @@
 #%RAML 1.0
+title: Banking API
+version: v1
+description: Universal API Manager Demo - Banking APIs
+mediaType:
+  - application/json
+protocols:
+  - HTTP
+baseUri: http://backend.muledemos.net:{port}/api/{version}
+baseUriParameters:
+  port:
+    description: Server port
+    default: "8081"
+    example: "8081"
+    type: string
+
 types:
   HealthCheck:
     description: This Data Type/Schema represents the health check information returned by the API
@@ -112,14 +127,23 @@ types:
         default: true
         example: true
         type: boolean
-title: Banking API
-description: |
-  Banking APIs
-mediaType:
-  - application/json
-version: 1.0.0
-protocols:
-  - HTTP
+
+/healthcheck:
+  get:
+    displayName: API health check endpoint
+    description: "Information about the current state of the API server is returned by this endpoint. "
+    responses:
+      "200":
+        description: "API is up and happily running "
+        body:
+          application/json:
+            description: JSON payload returned by the health check endpoint when everything is ok
+            type: HealthCheck
+      "500":
+        description: Something went wrong
+        body:
+          description: JSON payload returned by the health check endpoint when some error occurred
+          type: APIError
 /accounts:
   get:
     displayName: Accounts endpoint
@@ -189,69 +213,32 @@ protocols:
                 errorCode: API-305
                 status: Fail
                 timestamp: "1664732604"
-  uriParameters:
-    customerid?:
-      description: Enter the Customer identification to fetch data about a specific customer
-      example: "7159336526"
-      type: string
-/healthcheck:
-  get:
-    displayName: API health check endpoint
-    description: "Information about the current state of the API server is returned by this endpoint. "
-    responses:
-      "200":
-        description: "API is up and happily running "
-        body:
-          application/json:
-            description: JSON payload returned by the health check endpoint when everything is ok
-            type: HealthCheck
-      "500":
-        description: Something went wrong
-        body:
-          description: JSON payload returned by the health check endpoint when some error occurred
-          type: APIError
-baseUri: http://{server}:{port}/api
-baseUriParameters:
-  server:
-    description: Server hosting the API
-    enum:
-      - backend.muledemos.net
-    example: localhost
-    type: string
-  port:
-    description: Server port
-    enum:
-      - "8081"
-    example: "8081"
-    type: string
-/customers/{customerId}/accounts:
-  get:
-    displayName: Return list of all accounts belonging to a customer
-    description: This endpoint will return all the accounts that a customer owns.
-    body: {}
-    responses:
-      "200":
-        description: The API successfully fetched the list of accounts of the provided customer
-        body:
-          type: Accounts
-          items:
-            type: Account
-      "404":
-        description: The provided customer has no accounts
-        body:
-          type: Accounts
-          items:
-            type: Account
-      "500":
-        description: Error fetching the list of accounts of a customer
-        body:
-          type: Accounts
-          items:
-            type: Account
-    securedBy: []
-  uriParameters:
-    customerid:
-      description: Customer identification
-      example: "7159336526"
-      type: string
 
+  /{customerId}/accounts:
+    uriParameters:
+      customerId?:
+        description: Enter the Customer identification to fetch data about a specific customer
+        example: "7159336526"
+        type: string
+    get:
+      displayName: Return list of all accounts belonging to a customer
+      description: This endpoint will return all the accounts that a customer owns.
+      responses:
+        "200":
+          description: The API successfully fetched the list of accounts of the provided customer
+          body:
+            type: Accounts
+            items:
+              type: Account
+        "404":
+          description: The provided customer has no accounts
+          body:
+            type: Accounts
+            items:
+              type: Account
+        "500":
+          description: Error fetching the list of accounts of a customer
+          body:
+            type: Accounts
+            items:
+              type: Account
