@@ -1,0 +1,6 @@
+#%Catalog Descriptor 1.0
+projects:
+  - main: apispec/banking-api-v1.raml
+    assetId: banking-api
+    version: 1.0.0
+    apiVersion: v1

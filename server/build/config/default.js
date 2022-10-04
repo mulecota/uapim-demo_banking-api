@@ -10,4 +10,5 @@ dotenv_1.default.config();
 exports.default = {
     port: process.env.NODE_PORT || 3001,
     host: process.env.NODE_HOST || os_1.default.hostname,
+    api_version: process.env.API_VERSION || "v1",
 };

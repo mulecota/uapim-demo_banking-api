@@ -15,24 +15,6 @@ baseUriParameters:
     type: string
 
 types:
-  HealthCheck:
-    description: This Data Type/Schema represents the health check information returned by the API
-    properties:
-      status:
-        description: API status
-        enum:
-          - OK
-          - Fail
-          - Warning
-        example: OK
-        type: string
-      uptime:
-        description: Server uptime
-        example: "103.412151562"
-        type: string
-      mockdata:
-        description: "Loaded sample data "
-        type: MockData
   APIError:
     description: Common object shared among APIs to report any error
     properties:
@@ -138,7 +120,7 @@ types:
         body:
           application/json:
             description: JSON payload returned by the health check endpoint when everything is ok
-            type: HealthCheck
+            example: !include /healthcheck_example.json
       "500":
         description: Something went wrong
         body:

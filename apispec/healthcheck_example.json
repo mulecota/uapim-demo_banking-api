@@ -1,0 +1,280 @@
+{
+    "timestamp": "2022-10-04T14:27:54.093Z",
+    "status": "OK",
+    "api_title": "Banking API",
+    "api_description": "Non-Mule Banking API",
+    "api_version": "v1",
+    "api_uptime": 2.482226771,
+    "server": [
+        {
+            "uptime": 682760,
+            "hostname": "acota-ltmtbn9.internal.salesforce.com",
+            "cpus": [
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 185652240,
+                        "nice": 0,
+                        "sys": 62806150,
+                        "idle": 434290500,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2239520,
+                        "nice": 0,
+                        "sys": 3215720,
+                        "idle": 677293330,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 121803870,
+                        "nice": 0,
+                        "sys": 51657340,
+                        "idle": 509287360,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2354090,
+                        "nice": 0,
+                        "sys": 3177980,
+                        "idle": 677216490,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 99232680,
+                        "nice": 0,
+                        "sys": 43583520,
+                        "idle": 539932380,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2456700,
+                        "nice": 0,
+                        "sys": 3080390,
+                        "idle": 677211480,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 84727520,
+                        "nice": 0,
+                        "sys": 37717430,
+                        "idle": 560303630,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2543260,
+                        "nice": 0,
+                        "sys": 2965850,
+                        "idle": 677239450,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 65396880,
+                        "nice": 0,
+                        "sys": 29568130,
+                        "idle": 587783560,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2680080,
+                        "nice": 0,
+                        "sys": 2975860,
+                        "idle": 677092630,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 58290370,
+                        "nice": 0,
+                        "sys": 26185510,
+                        "idle": 598272690,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2727150,
+                        "nice": 0,
+                        "sys": 2848930,
+                        "idle": 677172490,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 45616050,
+                        "nice": 0,
+                        "sys": 20672870,
+                        "idle": 616459650,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2834350,
+                        "nice": 0,
+                        "sys": 2810050,
+                        "idle": 677104170,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 41162720,
+                        "nice": 0,
+                        "sys": 18504190,
+                        "idle": 623081650,
+                        "irq": 0
+                    }
+                },
+                {
+                    "model": "Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz",
+                    "speed": 2400,
+                    "times": {
+                        "user": 2892600,
+                        "nice": 0,
+                        "sys": 2695090,
+                        "idle": 677160870,
+                        "irq": 0
+                    }
+                }
+            ],
+            "memory": 68719476736,
+            "free_memory": 984379392,
+            "platform": "darwin",
+            "release": "21.6.0"
+        }
+    ],
+    "mock_data": [
+        {
+            "mock_data_version": "v1",
+            "customers": [
+                {
+                    "customerid": "7159336526",
+                    "login": "user1",
+                    "name": "Gherardo Labeuil",
+                    "email": "glabeuil0@opera.com"
+                },
+                {
+                    "customerid": "4895486796",
+                    "login": "user2",
+                    "name": "Kellby Sired",
+                    "email": "ksired1@cnbc.com"
+                },
+                {
+                    "customerid": "5656974405",
+                    "login": "user3",
+                    "name": "Nikola Jellico",
+                    "email": "njellico2@naver.com"
+                },
+                {
+                    "customerid": "8658018024",
+                    "login": "user4",
+                    "name": "Colman Duham",
+                    "email": "cduham3@ameblo.jp"
+                },
+                {
+                    "customerid": "7686884562",
+                    "login": "user5",
+                    "name": "Pasquale Craggs",
+                    "email": "pcraggs4@bloglines.com"
+                }
+            ],
+            "accounts": [
+                {
+                    "accountid": "2859993894",
+                    "customerid": "7159336526",
+                    "type": "checking",
+                    "balance": 932,
+                    "manager": "Chadd Lightbourne",
+                    "branch": 2110,
+                    "active": true
+                },
+                {
+                    "accountid": "3566962473",
+                    "customerid": "4895486796",
+                    "type": "savings",
+                    "balance": 884,
+                    "manager": "Clyde Carrier",
+                    "branch": 2173,
+                    "active": true
+                },
+                {
+                    "accountid": "8720104863",
+                    "customerid": "5656974405",
+                    "type": "savings",
+                    "balance": 848,
+                    "manager": "Bibby Jaray",
+                    "branch": 2335,
+                    "active": true
+                },
+                {
+                    "accountid": "3088920456",
+                    "customerid": "8658018024",
+                    "type": "savings",
+                    "balance": 329,
+                    "manager": "Cory Bortolini",
+                    "branch": 2276,
+                    "active": true
+                },
+                {
+                    "accountid": "2271795400",
+                    "customerid": "7686884562",
+                    "type": "checking",
+                    "balance": 836,
+                    "manager": "Adams Bleddon",
+                    "branch": 2483,
+                    "active": true
+                }
+            ]
+        }
+    ]
+}
