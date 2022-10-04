@@ -196,6 +196,45 @@ types:
                 status: Fail
                 timestamp: "1664732604"
 
+  /{customerId}:
+    uriParameters:
+      customerId?:
+        description: Enter the Customer identification to fetch data about a specific customer
+        example: "7159336526"
+        type: string
+    get:
+      displayName: Return information of a specific customer using their identification
+      description: This endpoint will return information about a given customer using their identification (customerId).
+      responses:
+        "200":
+          description: The API successfully fetched the information of the provided customer
+          body:
+            type: Customers
+            items:
+              type: Customer
+        "404":
+          description: Customer not found
+          body:
+            type: APIError
+            example:
+              strict: true
+              value:
+                message: The API server didn't find the customer
+                errorCode: API-CUSTOMER-404
+                status: Fail
+                timestamp: "1664732604"
+        "500":
+          description: Error fetching the list of accounts of a customer
+          body:
+            type: APIError
+            example:
+              strict: true
+              value:
+                message: Error fetching the user from the API server
+                errorCode: API-309
+                status: Fail
+                timestamp: "1664732604"
+
   /{customerId}/accounts:
     uriParameters:
       customerId?:
